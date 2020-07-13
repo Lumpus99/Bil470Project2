@@ -18,5 +18,5 @@ selected_features = ['foundation_type',
                      'has_superstructure_cement_mortar_stone']
 
 train_values_subset = train_values[selected_features]
-sns.pairplot(train_values_subset.join(train_labels),hue='damage_grade')
+sns.pairplot(train_values_subset.join(train_labels), hue='damage_grade')
 
