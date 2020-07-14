@@ -4,7 +4,6 @@ from sklearn import preprocessing
 import numpy as np
 
 train_target = pd.read_csv('data/train_labels.csv')['damage_grade']
-real_values = pd.read_csv('data/submission_format.csv')['damage_grade'].to_numpy()
 
 le = preprocessing.LabelEncoder()
 
@@ -30,19 +29,5 @@ rf = RandomForestClassifier()
 
 rf.fit(train_data, train_target)
 
-predictions = rf.predict(test_values)
-
-print("pred: ", len(predictions), "real:", len(real_values))
-
-correct = 0
-wrong = 0
-
-for pred, real in zip(predictions, real_values):
-    print("pred: ", pred, "real:", real)
-    if pred == real:
-        correct += 1
-    else:
-        wrong += 1
-print(correct/(correct+wrong))
-
+print(rf.predict(test_values))
 
