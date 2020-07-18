@@ -3,11 +3,11 @@ import Readfile as Rf
 import numpy as np
 
 
-def do_logistic_regression(ada, rf, svm):
+def do_logistic_regression(ada, rf, svm, x_test, y_train, y_test):
     print("LR")
     x_train = np.array(ada, rf, svm)
     print(x_train)
-    _, x_test, y_train, y_test = Rf.read_data()
+    # _, x_test, y_train, y_test = Rf.read_data()
     print("asad")
     random_forest = LogisticRegression()
     print("asad1")

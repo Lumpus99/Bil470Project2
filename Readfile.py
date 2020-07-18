@@ -39,3 +39,10 @@ def save_model(model_name, model):
     pickle.dump(model, file)
     file.close()
 
+
+def read_model(model_name):
+    filename = 'Models/{}_model.sav'.format(model_name)
+    file = open(filename, 'rb')
+    loaded_model = pickle.load(file)
+    file.close()
+    return loaded_model
