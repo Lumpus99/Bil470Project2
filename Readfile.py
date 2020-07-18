@@ -25,7 +25,6 @@ def calc_success(predictions, y_test):
     wrong = 0
 
     for pred, y_test in zip(predictions, y_test):
-        print("pred: ", pred, "real:", y_test)
         if pred == y_test:
             correct += 1
         else:
