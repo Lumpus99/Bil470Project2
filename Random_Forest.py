@@ -8,3 +8,4 @@ def do_random_forest():
     random_forest.fit(x_train, y_train)
     predictions = random_forest.predict(x_test)
     Rf.calc_success(predictions, y_test)
+    return predictions
