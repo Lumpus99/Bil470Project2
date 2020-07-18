@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn import preprocessing
 import numpy as np
 from sklearn.model_selection import train_test_split
+import pickle
 
 
 def read_data():
@@ -30,3 +31,11 @@ def calc_success(predictions, y_test):
         else:
             wrong += 1
     print(correct / (correct + wrong))
+
+
+def save_model(model_name, model):
+    filename = 'Models/{}_model.sav'.format(model_name)
+    file = open(filename, 'wb')
+    pickle.dump(model, file)
+    file.close()
+
