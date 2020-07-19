@@ -1,6 +1,6 @@
 import pandas as pd
 from sklearn import preprocessing
-from pandas import np
+import numpy as np
 from sklearn.model_selection import train_test_split, KFold
 import pickle
 from sklearn.ensemble import RandomForestClassifier

@@ -1,4 +1,3 @@
-from pandas import np
 from sklearn.ensemble import BaggingClassifier
 
 import Readfile as Rf
