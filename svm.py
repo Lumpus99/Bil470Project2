@@ -14,3 +14,8 @@ def do_svm():
     score = svc.score(x_test, y_test)
     print(score)
     Rf.save_model("SVM2", svc)
+
+
+def do_svm_with_k():
+    svc = SVC(kernel='linear', max_iter=1000)
+    Rf.k_validation(svc)

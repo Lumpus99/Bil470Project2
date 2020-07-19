@@ -9,3 +9,8 @@ def do_gradient_boost():
     score = ada_boost.score(x_test, y_test)
     print(score)
     Rf.save_model("Gradient2", ada_boost)
+
+
+def do_gradient_boost_with_k():
+    ada_boost = GradientBoostingClassifier()
+    Rf.k_validation(ada_boost)
