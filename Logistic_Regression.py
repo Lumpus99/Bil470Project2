@@ -2,7 +2,7 @@ from sklearn.ensemble import RandomForestClassifier
 import Readfile as Rf
 import numpy as np
 
-
+##random forest olarak kullaniliyor.Metod ismi degismedi.
 def do_logistic_regression(rf_predictions_train, rf_predictions_test,
                            gradient_predictions_train, gradient_predictions_test,
                            bagging_predictions_train, bagging_predictions_test,

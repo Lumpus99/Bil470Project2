@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import scipy
 train_values = pd.read_csv('data/train_values.csv', index_col='building_id')
 train_labels = pd.read_csv('data/train_labels.csv', index_col='building_id')
 print(train_values.dtypes)
