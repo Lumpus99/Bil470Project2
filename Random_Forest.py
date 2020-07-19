@@ -1,4 +1,6 @@
 from sklearn.ensemble import RandomForestClassifier
+
+
 import Readfile as Rf
 
 
@@ -9,3 +11,8 @@ def do_random_forest():
     score = random_forest.score(x_test, y_test)
     print(score)
     Rf.save_model("Random_Forest2", random_forest)
+
+
+def do_random_forest_with_k():
+    random_forest = RandomForestClassifier()
+    Rf.k_validation(random_forest)

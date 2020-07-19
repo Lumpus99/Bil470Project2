@@ -1,11 +1,14 @@
 import pandas as pd
 from sklearn import preprocessing
-import numpy as np
+from pandas import np
 from sklearn.model_selection import train_test_split, KFold
 import pickle
-
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import BaggingClassifier
+from sklearn.svm import SVC
+from sklearn.ensemble import AdaBoostClassifier
+from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.preprocessing import MinMaxScaler
-from sklearn.svm import SVR
 
 
 def read_data():
@@ -41,18 +44,18 @@ def read_model(model_name):
     file.close()
     return loaded_model
 
-def k_validation():
-    x_train, _, y_train, _, _, _ = read_data()
+
+def k_validation(the_model):
+    x, _, y, _, _, _ = read_data()
     scaler = MinMaxScaler(feature_range=(0, 1))
-    x_train = scaler.fit_transform(x_train)
+    x_train = scaler.fit_transform(x)
     scores = []
-    best_svr = SVR(kernel='rbf')
-    cv = KFold(n_splits=20, random_state=42, shuffle=False)
+    cv = KFold(n_splits=10, random_state=42, shuffle=False)
+
     for train_index, test_index in cv.split(x_train):
-        print("Train Index: ", train_index, "\n")
-        print("Test Index: ", test_index)
-        X_train, X_test, y_train, y_test = x_train[train_index], x_train[test_index], y_train[train_index], y_train[
+        #print("Train Index: ", train_index, "\n") print("Test Index: ", test_index)
+        X_train, X_test, y_train, y_test = x[train_index], x[test_index], y[train_index], y[
             test_index]
-        best_svr.fit(X_train, y_train)
-        scores.append(best_svr.score(X_test, y_test))
-    return np.mean(scores)
+        the_model.fit(X_train, y_train)
+        scores.append(the_model.score(X_test, y_test))
+    print(the_model.__str__(), " with score ", np.mean(scores))
