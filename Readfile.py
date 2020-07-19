@@ -37,3 +37,19 @@ def read_model(model_name):
     loaded_model = pickle.load(file)
     file.close()
     return loaded_model
+
+def k_validation():
+    x_train, _, y_train, _, _, _ = read_data()
+    scaler = MinMaxScaler(feature_range=(0, 1))
+    x_train = scaler.fit_transform(x_train)
+    scores = []
+    best_svr = SVR(kernel='rbf')
+    cv = KFold(n_splits=20, random_state=42, shuffle=False)
+    for train_index, test_index in cv.split(x_train):
+        print("Train Index: ", train_index, "\n")
+        print("Test Index: ", test_index)
+        X_train, X_test, y_train, y_test = x_train[train_index], x_train[test_index], y_train[train_index], y_train[
+            test_index]
+        best_svr.fit(X_train, y_train)
+        scores.append(best_svr.score(X_test, y_test))
+    return np.mean(scores)
