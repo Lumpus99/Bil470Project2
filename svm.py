@@ -4,7 +4,7 @@ from sklearn.preprocessing import StandardScaler
 
 
 def do_svm():
-    x_train, x_test, y_train, y_test, _, _ = Rf.read_data()
+    x_train, _, y_train, _, x_test, y_test = Rf.read_data()
 
     scaler = StandardScaler()
     x_train = scaler.fit(x_train).transform(x_train)
