@@ -18,19 +18,11 @@ def read_data():
         train_data[:, i] = le.fit_transform(train_data[:, i])
 
     x_train, x_test, y_train, y_test = train_test_split(train_data, train_target, test_size=0.20, random_state=42)
-    return x_train, x_test, y_train, y_test
+    x_train_layer2, x_train_blender, y_train_layer2, y_train_blender = \
+        train_test_split(x_train, y_train, test_size=0.20, random_state=42)
 
+    return x_train_layer2, x_train_blender, y_train_layer2, y_train_blender, x_test, y_test
 
-def calc_success(predictions, y_test):
-    correct = 0
-    wrong = 0
-
-    for pred, y_test in zip(predictions, y_test):
-        if pred == y_test:
-            correct += 1
-        else:
-            wrong += 1
-    print(correct / (correct + wrong))
 
 
 def save_model(model_name, model):
