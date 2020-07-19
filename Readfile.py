@@ -24,7 +24,6 @@ def read_data():
     return x_train_layer2, x_train_blender, y_train_layer2, y_train_blender, x_test, y_test
 
 
-
 def save_model(model_name, model):
     filename = 'Models/{}_model.sav'.format(model_name)
     file = open(filename, 'wb')

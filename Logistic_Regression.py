@@ -4,14 +4,14 @@ import numpy as np
 
 
 def do_logistic_regression(rf_predictions_train, rf_predictions_test,
-                           svm_predictions_train, svm_predictions_test,
-                           ada_predictions_train, ada_predictions_test,
+                           gradient_predictions_train, gradient_predictions_test,
+                           bagging_predictions_train, bagging_predictions_test,
                            y_train_blender, y_test):
 
-    x_train = [rf_predictions_train, svm_predictions_train, ada_predictions_train]
+    x_train = [rf_predictions_train, gradient_predictions_train, bagging_predictions_train]
     x_train = np.array(x_train).transpose()
 
-    x_test = [rf_predictions_test, svm_predictions_test, ada_predictions_test]
+    x_test = [rf_predictions_test, gradient_predictions_test, bagging_predictions_test]
     x_test = np.array(x_test).transpose()
 
     logistic_regression = RandomForestClassifier()
