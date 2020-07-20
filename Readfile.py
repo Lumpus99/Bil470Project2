@@ -9,6 +9,7 @@ from sklearn.svm import SVC
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.preprocessing import MinMaxScaler
+from sklearn.neighbors import KNeighborsClassifier
 
 
 def read_data():
@@ -79,7 +80,7 @@ def k_validation(the_model):
     scaler = MinMaxScaler(feature_range=(0, 1))
     x_train = scaler.fit_transform(x)
     scores = []
-    cv = KFold(n_splits=10, random_state=42, shuffle=False)
+    cv = KFold(n_splits = 10, random_state=42, shuffle=False)
 
     for train_index, test_index in cv.split(x_train):
         # print("Train Index: ", train_index, "\n") print("Test Index: ", test_index)

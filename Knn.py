@@ -17,3 +17,15 @@ def do_final_Knn():
     knn = KNeighborsClassifier()
     knn.fit(x_train, y_train)
     Rf.save_model("Knn", knn)
+
+
+def do_Knn_with_k():
+    print("K=4")
+    knn = KNeighborsClassifier(n_neighbors=4)
+    Rf.k_validation(knn)
+    print("K=5")
+    knn = KNeighborsClassifier(n_neighbors=5)
+    Rf.k_validation(knn)
+    print("K=10")
+    knn = KNeighborsClassifier(n_neighbors=10)
+    Rf.k_validation(knn)

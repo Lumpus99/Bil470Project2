@@ -17,5 +17,12 @@ def do_svm():
 
 
 def do_svm_with_k():
+    print("linear SVC")
     svc = SVC(kernel='linear', max_iter=1000)
+    Rf.k_validation(svc)
+    print("polynomial SVC")
+    svc = SVC(kernel='poly', max_iter=1000)
+    Rf.k_validation(svc)
+    print("rbf SVC")
+    svc = SVC(kernel='rbf', max_iter=1000)
     Rf.k_validation(svc)
