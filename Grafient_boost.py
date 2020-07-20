@@ -14,3 +14,10 @@ def do_gradient_boost():
 def do_gradient_boost_with_k():
     ada_boost = GradientBoostingClassifier()
     Rf.k_validation(ada_boost)
+
+def do_gradient_boost_with_f1():
+    ada_boost = GradientBoostingClassifier()
+    Rf.f1_validation(ada_boost, 'micro')
+    Rf.f1_validation(ada_boost, 'macro')
+    Rf.f1_validation(ada_boost, 'weighted')
+    Rf.f1_validation(ada_boost, None)

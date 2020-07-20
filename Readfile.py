@@ -10,7 +10,7 @@ from sklearn.ensemble import AdaBoostClassifier
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.neighbors import KNeighborsClassifier
-
+from sklearn.metrics import f1_score
 
 def read_data():
     cols = tuple(range(1, 39))
@@ -89,3 +89,19 @@ def k_validation(the_model):
         the_model.fit(X_train, y_train)
         scores.append(the_model.score(X_test, y_test))
     print(the_model.__str__(), " with score ", np.mean(scores))
+
+
+def f1_validation(the_model,average):
+    x, _, y, _, _, _ = read_data()
+    X_train, X_test, y_train, y_test = train_test_split(x, y, random_state=0)
+    # fit
+    the_model.fit(X_train, y_train)
+
+    # predict
+    y_pred = the_model.predict(X_test)
+    score = f1_score(y_pred, y_test,average=average)
+
+    # print
+    #print("Decision Tree F1 score: {:.2f}".format(score))
+    print(the_model.__str__(), " with F1 score: ", score)
+    #[None, 'micro', 'macro', 'weighted']

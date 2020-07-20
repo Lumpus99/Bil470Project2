@@ -22,3 +22,11 @@ def do_final_bagging():
 def do_Bagging_with_k():
     bagging = BaggingClassifier()
     Rf.k_validation(bagging)
+
+
+def do_bagging_with_f1():
+    bagging = BaggingClassifier()
+    Rf.f1_validation(bagging, 'micro')
+    Rf.f1_validation(bagging, 'macro')
+    Rf.f1_validation(bagging, 'weighted')
+    Rf.f1_validation(bagging, None)

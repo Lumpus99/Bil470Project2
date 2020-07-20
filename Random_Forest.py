@@ -4,6 +4,7 @@ from sklearn.ensemble import RandomForestClassifier
 import Readfile as Rf
 
 
+
 def do_random_forest():
     x_train, _, y_train, _, x_test, y_test = Rf.read_data()
     random_forest = RandomForestClassifier()
@@ -23,3 +24,10 @@ def do_final_rf():
 def do_random_forest_with_k():
     random_forest = RandomForestClassifier()
     Rf.k_validation(random_forest)
+
+def do_random_forest_with_f1():
+    random_forest = RandomForestClassifier()
+    Rf.f1_validation(random_forest, 'micro')
+    Rf.f1_validation(random_forest, 'macro')
+    Rf.f1_validation(random_forest, 'weighted')
+    Rf.f1_validation(random_forest, None)

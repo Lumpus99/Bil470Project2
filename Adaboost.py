@@ -16,3 +16,10 @@ def do_ada_boost():
 def do_ada_boost_with_k():
     ada_boost = AdaBoostClassifier()
     Rf.k_validation(ada_boost)
+
+def do_ada_boost_with_f1():
+    ada_boost = AdaBoostClassifier()
+    Rf.f1_validation(ada_boost,'micro')
+    Rf.f1_validation(ada_boost, 'macro')
+    Rf.f1_validation(ada_boost, 'weighted')
+    Rf.f1_validation(ada_boost, None)
