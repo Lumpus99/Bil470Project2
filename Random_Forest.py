@@ -13,6 +13,13 @@ def do_random_forest():
     Rf.save_model("Random_Forest2", random_forest)
 
 
+def do_final_rf():
+    x_train, _, y_train, _, _ = Rf.read_data_final()
+    random_forest = RandomForestClassifier()
+    random_forest.fit(x_train, y_train)
+    Rf.save_model("Random_Forest", random_forest)
+
+
 def do_random_forest_with_k():
     random_forest = RandomForestClassifier()
     Rf.k_validation(random_forest)
